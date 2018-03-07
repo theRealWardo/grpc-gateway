@@ -8,7 +8,7 @@ import (
 
 	"github.com/golang/protobuf/proto"
 	"github.com/golang/protobuf/ptypes/any"
-	"github.com/grpc-ecosystem/grpc-gateway/runtime/internal"
+	"github.com/therealwardo/grpc-gateway/runtime/internal"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/grpclog"
