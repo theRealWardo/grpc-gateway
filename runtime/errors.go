@@ -13,45 +13,31 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+const errorMap = map[codes.Code]int{
+	codes.OK:                 http.StatusOK,
+	codes.Canceled:           http.StatusRequestTimeout,
+	codes.Unknown:            http.StatusInternalServerError,
+	codes.InvalidArgument:    http.StatusBadRequest,
+	codes.DeadlineExceeded:   http.StatusRequestTimeout,
+	codes.NotFound:           http.StatusNotFound,
+	codes.AlreadyExists:      http.StatusConflict,
+	codes.PermissionDenied:   http.StatusForbidden,
+	codes.Unauthenticated:    http.StatusUnauthorized,
+	codes.ResourceExhausted:  http.StatusTooManyRequests,
+	codes.FailedPrecondition: http.StatusPreconditionFailed,
+	codes.Aborted:            http.StatusConflict,
+	codes.OutOfRange:         http.StatusBadRequest,
+	codes.Unimplemented:      http.StatusNotImplemented,
+	codes.Internal:           http.StatusInternalServerError,
+	codes.Unavailable:        http.StatusServiceUnavailable,
+	codes.DataLoss:           http.StatusInternalServerError,
+}
+
 // HTTPStatusFromCode converts a gRPC error code into the corresponding HTTP response status.
 func HTTPStatusFromCode(code codes.Code) int {
-	switch code {
-	case codes.OK:
-		return http.StatusOK
-	case codes.Canceled:
-		return http.StatusRequestTimeout
-	case codes.Unknown:
-		return http.StatusInternalServerError
-	case codes.InvalidArgument:
-		return http.StatusBadRequest
-	case codes.DeadlineExceeded:
-		return http.StatusRequestTimeout
-	case codes.NotFound:
-		return http.StatusNotFound
-	case codes.AlreadyExists:
-		return http.StatusConflict
-	case codes.PermissionDenied:
-		return http.StatusForbidden
-	case codes.Unauthenticated:
-		return http.StatusUnauthorized
-	case codes.ResourceExhausted:
-		return http.StatusServiceUnavailable
-	case codes.FailedPrecondition:
-		return http.StatusPreconditionFailed
-	case codes.Aborted:
-		return http.StatusConflict
-	case codes.OutOfRange:
-		return http.StatusBadRequest
-	case codes.Unimplemented:
-		return http.StatusNotImplemented
-	case codes.Internal:
-		return http.StatusInternalServerError
-	case codes.Unavailable:
-		return http.StatusServiceUnavailable
-	case codes.DataLoss:
-		return http.StatusInternalServerError
+	if code, ok := errorMap[code]; ok {
+		return code
 	}
-
 	grpclog.Printf("Unknown gRPC error code: %v", code)
 	return http.StatusInternalServerError
 }
