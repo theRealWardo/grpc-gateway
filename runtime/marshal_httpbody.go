@@ -53,6 +53,11 @@ func (*HttpBodyMarshaler) NewEncoder(w io.Writer) Encoder {
 	return backupMarshaler.NewEncoder(w)
 }
 
+// Delimiter for encoded multi-part streams.
+func (j *HttpBodyMarshaler) Delimiter() []byte {
+	return []byte("")
+}
+
 func tryHttpBody(v interface{}) *hb.HttpBody {
 	rv := reflect.ValueOf(v)
 	// The handler wraps streamed chunks in a map.
