@@ -13,7 +13,7 @@ import (
 	"google.golang.org/grpc/status"
 )
 
-const errorMap = map[codes.Code]int{
+var errorMap = map[codes.Code]int{
 	codes.OK:                 http.StatusOK,
 	codes.Canceled:           http.StatusRequestTimeout,
 	codes.Unknown:            http.StatusInternalServerError,
