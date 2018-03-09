@@ -57,7 +57,7 @@ func tryHttpBody(v interface{}) *hb.HttpBody {
 	rv := reflect.ValueOf(v)
 	// The handler wraps streamed chunks in a map.
 	// If we're sending an HTTP body as a chunk, we need to unpack it.
-	if rv.Kind() == reflect.Map && rv.Type().ConvertibleTo(reflect.TypeOf((map[string]proto.Message)(nil)).Elem()) {
+	if rv.Kind() == reflect.Map && rv.Type().ConvertibleTo(reflect.TypeOf(map[string]proto.Message{})) {
 		m := v.(map[string]proto.Message)
 		if r, ok := m["result"]; ok && proto.MessageName(r) == "google.api.HttpBody" {
 			return r.(*hb.HttpBody)
