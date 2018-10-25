@@ -178,6 +178,7 @@ func isPermanentHTTPHeader(hdr string) bool {
 		"Origin",
 		"Pragma",
 		"Referer",
+		"Range",
 		"User-Agent",
 		"Via",
 		"Warning":
