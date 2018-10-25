@@ -32,8 +32,8 @@ func ForwardResponseStream(ctx context.Context, mux *ServeMux, marshaler Marshal
 	}
 	handleForwardResponseServerMetadata(w, mux, md)
 	if encoding, ok := md.HeaderMD["Transfer-Encoding"]; ok {
-		if len(encoding) > 0 {
-			w.Header().Set("Transfer-Encoding", encoding)
+		if len(encoding) > 0 && len(encoding[0]) > 0 {
+			w.Header().Set("Transfer-Encoding", encoding[0])
 		}
 	} else {
 		w.Header().Set("Transfer-Encoding", "chunked")
