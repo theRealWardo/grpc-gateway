@@ -31,8 +31,13 @@ func ForwardResponseStream(ctx context.Context, mux *ServeMux, marshaler Marshal
 		return
 	}
 	handleForwardResponseServerMetadata(w, mux, md)
-
-	w.Header().Set("Transfer-Encoding", "chunked")
+	if encoding, ok := md.HeaderMD["Transfer-Encoding"]; ok {
+		if len(encoding) > 0 {
+			w.Header().Set("Transfer-Encoding", encoding)
+		}
+	} else {
+		w.Header().Set("Transfer-Encoding", "chunked")
+	}
 	w.Header().Set("Content-Type", marshaler.ContentType(nil))
 	if err := handleForwardResponseOptions(ctx, w, nil, opts); err != nil {
 		HTTPError(ctx, mux, marshaler, w, req, err)
