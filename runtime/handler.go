@@ -31,18 +31,7 @@ func ForwardResponseStream(ctx context.Context, mux *ServeMux, marshaler Marshal
 		return
 	}
 	handleForwardResponseServerMetadata(w, mux, md)
-	if encoding, ok := md.HeaderMD["Transfer-Encoding"]; ok {
-		if len(encoding) > 0 && len(encoding[0]) > 0 {
-			w.Header().Set("Transfer-Encoding", encoding[0])
-		}
-	} else {
-		w.Header().Set("Transfer-Encoding", "chunked")
-	}
-	w.Header().Set("Content-Type", marshaler.ContentType(nil))
-	if err := handleForwardResponseOptions(ctx, w, nil, opts); err != nil {
-		HTTPError(ctx, mux, marshaler, w, req, err)
-		return
-	}
+	w.Header().Set("Transfer-Encoding", "chunked")
 
 	var delimiter []byte
 	if d, ok := marshaler.(Delimited); ok {
@@ -62,14 +51,14 @@ func ForwardResponseStream(ctx context.Context, mux *ServeMux, marshaler Marshal
 			handleForwardResponseStreamError(wroteHeader, marshaler, w, err)
 			return
 		}
-		if err := handleForwardResponseOptions(ctx, w, resp, opts); err != nil {
-			handleForwardResponseStreamError(wroteHeader, marshaler, w, err)
-			return
-		}
 
 		chunk := streamChunk(resp, nil)
 		if !ctSet {
 			w.Header().Set("Content-Type", marshaler.ContentType(chunk))
+			if err := handleForwardResponseOptions(ctx, w, resp, opts); err != nil {
+				HTTPError(ctx, mux, marshaler, w, req, err)
+				return
+			}
 			ctSet = true
 		}
 		buf, err := marshaler.Marshal(chunk)
