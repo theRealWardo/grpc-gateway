@@ -31,7 +31,6 @@ func ForwardResponseStream(ctx context.Context, mux *ServeMux, marshaler Marshal
 		return
 	}
 	handleForwardResponseServerMetadata(w, mux, md)
-	w.Header().Set("Transfer-Encoding", "chunked")
 
 	var delimiter []byte
 	if d, ok := marshaler.(Delimited); ok {
