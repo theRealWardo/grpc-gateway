@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "api_client.go",
+        "api_response.go",
+        "configuration.go",
+        "echo_service_api.go",
+        "examplepb_simple_message.go",
+    ],
+    importpath = "github.com/grpc-ecosystem/grpc-gateway/examples/clients/echo",
+    visibility = ["//visibility:public"],
+    deps = ["@com_github_go_resty_resty//:go_default_library"],
+)
