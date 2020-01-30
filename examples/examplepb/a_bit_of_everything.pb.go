@@ -9,8 +9,8 @@ import math "math"
 import _ "google.golang.org/genproto/googleapis/api/annotations"
 import google_protobuf1 "github.com/golang/protobuf/ptypes/empty"
 import google_protobuf2 "github.com/golang/protobuf/ptypes/duration"
-import grpc_gateway_examples_sub "github.com/grpc-ecosystem/grpc-gateway/examples/sub"
-import sub2 "github.com/grpc-ecosystem/grpc-gateway/examples/sub2"
+import grpc_gateway_examples_sub "github.com/therealwardo/grpc-gateway/examples/sub"
+import sub2 "github.com/therealwardo/grpc-gateway/examples/sub2"
 import google_protobuf3 "github.com/golang/protobuf/ptypes/timestamp"
 
 import (

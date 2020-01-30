@@ -3,7 +3,7 @@ load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library", "go_test")
 go_library(
     name = "go_default_library",
     srcs = ["main.go"],
-    importpath = "github.com/grpc-ecosystem/grpc-gateway/examples",
+    importpath = "github.com/therealwardo/grpc-gateway/examples",
     visibility = ["//visibility:private"],
     deps = [
         "//examples/examplepb:go_default_library",

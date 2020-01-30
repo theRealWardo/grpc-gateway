@@ -19,7 +19,7 @@ go_library(
         "proto_errors.go",
         "query.go",
     ],
-    importpath = "github.com/grpc-ecosystem/grpc-gateway/runtime",
+    importpath = "github.com/therealwardo/grpc-gateway/runtime",
     visibility = ["//visibility:public"],
     deps = [
         "//runtime/internal:go_default_library",

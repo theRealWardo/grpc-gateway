@@ -12,7 +12,7 @@ import (
 	"sync"
 
 	pbdescriptor "github.com/golang/protobuf/protoc-gen-go/descriptor"
-	"github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/descriptor"
+	"github.com/therealwardo/grpc-gateway/protoc-gen-grpc-gateway/descriptor"
 )
 
 func listEnumNames(enum *descriptor.Enum) (names []string) {

@@ -8,8 +8,8 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	pb "github.com/grpc-ecosystem/grpc-gateway/examples/examplepb"
-	"github.com/grpc-ecosystem/grpc-gateway/runtime"
+	pb "github.com/therealwardo/grpc-gateway/examples/examplepb"
+	"github.com/therealwardo/grpc-gateway/runtime"
 	"golang.org/x/net/context"
 )
 
