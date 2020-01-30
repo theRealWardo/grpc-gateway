@@ -25,7 +25,6 @@ go_proto_compiler(
     name = "go_gen_grpc_gateway",
     options = [
         "logtostderr=true",
-        "allow_repeated_fields_in_body=true",
     ],
     plugin = ":protoc-gen-grpc-gateway",
     suffix = ".pb.gw.go",
