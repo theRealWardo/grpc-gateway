@@ -24,7 +24,7 @@ proto_library(
 go_proto_library(
     name = "examplepb_go_proto",
     compilers = ["@io_bazel_rules_go//proto:go_grpc"],
-    importpath = "github.com/grpc-ecosystem/grpc-gateway/examples/examplepb",
+    importpath = "github.com/therealwardo/grpc-gateway/examples/examplepb",
     proto = ":examplepb_proto",
     visibility = ["//visibility:public"],
     deps = [
@@ -44,14 +44,14 @@ go_library(
         "stream.pb.gw.go",
     ],
     embed = [":examplepb_go_proto"],
-    importpath = "github.com/grpc-ecosystem/grpc-gateway/examples/examplepb",
+    importpath = "github.com/therealwardo/grpc-gateway/examples/examplepb",
     visibility = ["//visibility:public"],
     deps = [
-        "//examples/sub:go_default_library",
         "//examples/sub2:go_default_library",
-        "//runtime:go_default_library",
-        "//utilities:go_default_library",
         "@com_github_golang_protobuf//proto:go_default_library",
+        "@com_github_grpc_ecosystem_grpc_gateway//examples/sub:go_default_library",
+        "@com_github_grpc_ecosystem_grpc_gateway//runtime:go_default_library",
+        "@com_github_grpc_ecosystem_grpc_gateway//utilities:go_default_library",
         "@io_bazel_rules_go//proto/wkt:empty_go_proto",
         "@org_golang_google_grpc//:go_default_library",
         "@org_golang_google_grpc//codes:go_default_library",

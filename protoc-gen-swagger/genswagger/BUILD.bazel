@@ -8,7 +8,7 @@ go_library(
         "template.go",
         "types.go",
     ],
-    importpath = "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger/genswagger",
+    importpath = "github.com/therealwardo/grpc-gateway/protoc-gen-swagger/genswagger",
     visibility = ["//visibility:public"],
     deps = [
         "//protoc-gen-swagger/options:go_default_library",

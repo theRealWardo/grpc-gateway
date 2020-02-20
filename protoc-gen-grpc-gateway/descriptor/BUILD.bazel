@@ -7,7 +7,7 @@ go_library(
         "services.go",
         "types.go",
     ],
-    importpath = "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/descriptor",
+    importpath = "github.com/therealwardo/grpc-gateway/protoc-gen-grpc-gateway/descriptor",
     visibility = ["//visibility:public"],
     deps = [
         "@com_github_golang_glog//:go_default_library",

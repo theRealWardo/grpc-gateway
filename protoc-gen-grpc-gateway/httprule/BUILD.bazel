@@ -7,7 +7,7 @@ go_library(
         "parse.go",
         "types.go",
     ],
-    importpath = "github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway/httprule",
+    importpath = "github.com/therealwardo/grpc-gateway/protoc-gen-grpc-gateway/httprule",
     visibility = ["//visibility:public"],
     deps = [
         "@com_github_golang_glog//:go_default_library",

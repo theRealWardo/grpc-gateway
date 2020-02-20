@@ -16,7 +16,7 @@ go_library(
         "protobuf_empty.go",
         "sub_string_message.go",
     ],
-    importpath = "github.com/grpc-ecosystem/grpc-gateway/examples/clients/abe",
+    importpath = "github.com/therealwardo/grpc-gateway/examples/clients/abe",
     visibility = ["//visibility:public"],
     deps = ["@com_github_go_resty_resty//:go_default_library"],
 )
