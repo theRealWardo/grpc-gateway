@@ -8,9 +8,9 @@ import (
 	"testing"
 
 	"github.com/golang/protobuf/proto"
-	pb "github.com/grpc-ecosystem/therealwardo/examples/examplepb"
-	"github.com/grpc-ecosystem/therealwardo/runtime"
-	"github.com/grpc-ecosystem/therealwardo/runtime/internal"
+	pb "github.com/therealwardo/grpc-gateway/examples/examplepb"
+	"github.com/therealwardo/grpc-gateway/runtime"
+	"github.com/therealwardo/grpc-gateway/runtime/internal"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"

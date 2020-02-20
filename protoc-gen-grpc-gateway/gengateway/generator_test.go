@@ -7,7 +7,7 @@ import (
 
 	"github.com/golang/protobuf/proto"
 	protodescriptor "github.com/golang/protobuf/protoc-gen-go/descriptor"
-	"github.com/grpc-ecosystem/therealwardo/protoc-gen-grpc-gateway/descriptor"
+	"github.com/therealwardo/grpc-gateway/protoc-gen-grpc-gateway/descriptor"
 )
 
 func newExampleFileDescriptor() *descriptor.File {

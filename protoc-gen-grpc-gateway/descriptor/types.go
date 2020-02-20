@@ -6,7 +6,7 @@ import (
 
 	descriptor "github.com/golang/protobuf/protoc-gen-go/descriptor"
 	gogen "github.com/golang/protobuf/protoc-gen-go/generator"
-	"github.com/grpc-ecosystem/therealwardo/protoc-gen-grpc-gateway/httprule"
+	"github.com/therealwardo/grpc-gateway/protoc-gen-grpc-gateway/httprule"
 )
 
 // IsWellKnownType returns true if the provided fully qualified type name is considered 'well-known'.

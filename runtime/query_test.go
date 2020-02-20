@@ -12,8 +12,8 @@ import (
 	"github.com/golang/protobuf/ptypes"
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"github.com/golang/protobuf/ptypes/wrappers"
-	"github.com/grpc-ecosystem/therealwardo/runtime"
-	"github.com/grpc-ecosystem/therealwardo/utilities"
+	"github.com/therealwardo/grpc-gateway/runtime"
+	"github.com/therealwardo/grpc-gateway/utilities"
 	"google.golang.org/genproto/protobuf/field_mask"
 )
 

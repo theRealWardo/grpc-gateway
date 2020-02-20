@@ -15,5 +15,4 @@ go_test(
     name = "go_default_test",
     srcs = ["trie_test.go"],
     embed = [":go_default_library"],
-    deps = ["@com_github_grpc_ecosystem_therealwardo//utilities:go_default_library"],
 )

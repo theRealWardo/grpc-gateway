@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	"github.com/grpc-ecosystem/therealwardo/runtime"
+	"github.com/therealwardo/grpc-gateway/runtime"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc/metadata"
 )
