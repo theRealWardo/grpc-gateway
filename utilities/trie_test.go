@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/grpc-ecosystem/grpc-gateway/utilities"
+	"github.com/grpc-ecosystem/therealwardo/utilities"
 )
 
 func TestMaxCommonPrefix(t *testing.T) {

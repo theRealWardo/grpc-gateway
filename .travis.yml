@@ -17,16 +17,16 @@ before_install:
 - go get github.com/dghubble/sling
 - go get github.com/go-resty/resty
 install:
-- go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
-- go get github.com/grpc-ecosystem/grpc-gateway/runtime
-- go get github.com/grpc-ecosystem/grpc-gateway/examples
-- go get github.com/grpc-ecosystem/grpc-gateway/examples/server
+- go get github.com/grpc-ecosystem/therealwardo/protoc-gen-grpc-gateway
+- go get github.com/grpc-ecosystem/therealwardo/runtime
+- go get github.com/grpc-ecosystem/therealwardo/examples
+- go get github.com/grpc-ecosystem/therealwardo/examples/server
 before_script:
 - sh -c 'cd examples/browser && npm install'
 script:
 - make realclean && make examples SWAGGER_CODEGEN="java -jar $HOME/local/swagger-codegen-cli.jar"
 - if (go version | grep -q "${GO_VERSION_TO_DIFF_TEST}") && [ -z "${GATEWAY_PLUGIN_FLAGS}" ]; then test -z "$(git status --porcelain)" || (git status; git diff; exit 1); fi
-- env GLOG_logtostderr=1 go test -race -v github.com/grpc-ecosystem/grpc-gateway/...
+- env GLOG_logtostderr=1 go test -race -v github.com/grpc-ecosystem/therealwardo/...
 - if (go version | grep -q "${GO_VERSION_TO_DIFF_TEST}") && [ -z "${GATEWAY_PLUGIN_FLAGS}" ]; then env GLOG_logtostderr=1 ./bin/coverage; fi
 - make lint
 - sh -c 'cd examples/browser && node ./node_modules/gulp/bin/gulp'

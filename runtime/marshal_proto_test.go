@@ -6,8 +6,8 @@ import (
 
 	"bytes"
 	"github.com/golang/protobuf/ptypes/timestamp"
-	"github.com/grpc-ecosystem/grpc-gateway/examples/examplepb"
-	"github.com/grpc-ecosystem/grpc-gateway/runtime"
+	"github.com/grpc-ecosystem/therealwardo/examples/examplepb"
+	"github.com/grpc-ecosystem/therealwardo/runtime"
 )
 
 var message = &examplepb.ABitOfEverything{
