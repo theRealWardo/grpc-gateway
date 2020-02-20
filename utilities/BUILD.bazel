@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "doc.go",
+        "pattern.go",
+        "trie.go",
+    ],
+    importpath = "github.com/grpc-ecosystem/grpc-gateway/utilities",
+    visibility = ["//visibility:public"],
+)
+
+go_test(
+    name = "go_default_test",
+    srcs = ["trie_test.go"],
+    embed = [":go_default_library"],
+    deps = ["@com_github_grpc_ecosystem_therealwardo//utilities:go_default_library"],
+)
